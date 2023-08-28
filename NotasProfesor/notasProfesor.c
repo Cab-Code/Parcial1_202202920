@@ -26,10 +26,10 @@ int main(){
         printf("Ingrese el nombre del alumno:\n");
             scanf("%s %s", nombre, apellido);
 
-         FILE *archivo = fopen("historial.txt", "a"); // Abrir archivo en modo "append"
+         FILE *archivo = fopen("historial.txt", "a");
                 if (archivo == NULL) {
                     printf("No se pudo abrir el archivo para escribir.\n");
-                    return 1; // Salir del programa con código de error
+                    return 1; 
                 }
         fprintf(archivo, "-------------------------------\n");
         fprintf(archivo, "-------------------------------\n");
@@ -49,10 +49,29 @@ int main(){
 
         break;
     case 2:
-        /* code */
+         printf("Notas:\n");
+            char lectura[100]; 
+             FILE *archivoL = fopen("historial.txt", "r");
+                if (archivoL == NULL) {
+                    printf("No se pudo abrir el archivo para escribir.\n");
+                    return 1;
+                }
+                while (fgets(lectura, 100, archivoL) != NULL) {
+                    
+                    printf("%s", lectura); 
+                }
+                fclose(archivoL);
+
+                break;
         break;
     case 3:
-        /* code */
+        FILE *archivoB = fopen("historial.txt", "w");
+                if (archivoB == NULL) {
+                    printf("No se pudo abrir el archivo para escribir.\n");
+                    return 1;
+                }
+            fprintf(archivo, " ");
+
         break;
     case 4:
         printf("\n Cerrando programa ...");
